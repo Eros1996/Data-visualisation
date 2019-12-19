@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Visualization - Physiological Data in VR</title>
+  <link rel="stylesheet" href="style.css">
+  <script type="text/javascript" src="d3.js"></script>
+  <script type="text/javascript" src="skinConductance.js"></script>
+  <script type="text/javascript" src="heartRate.js"></script>
+  <script type="text/javascript" src="subject.js"></script>
+</head>
+
+<body>
+
+  <div class="title"> <b>DATA VISUALIZATION PROJECT:</b> Physiological data in Virtual Reality</div>
+  <p> <b>Name:</b> Eros, <b>Surname:</b> Viola, <b>uID:</b> 4219790, <b>e-mail:</b> eroseros96@gmail.com </p>
+
+  <div onclick="skinConductance()" class="selected" id="sc">
+    <text> SKIN RESPONSE </text>
+  </div>
+
+  <div onclick="heartRate()" class="not_selected" id="ht">
+    <text> HEART RATE </text>
+  </div>
+
+  <div onclick="subject()" class="not_selected" id="s">
+    <text> SUBJECT </text>
+  </div>
+
+
+  <div id="PrincipalPlot">
+
+    <!-- Dropdown -->
+    <span id="typeChart" style="display:block" class="typeChart">
+      <label>SELECT TYPE OF CHART:</label>
+      <select id="typeOfChart" onchange="changeChart()" class="dropdown">
+        <option selected value="lineChart">Line Chart</option>
+        <option value="boxPlot">Box plot</option>
+      </select>
+    </span>
+
+    <!-- Checkbox-immersion  -->
+    <span id="span_immersion" style="display:block; " class="immersion">
+      <label class="container">ONLY IMMERSION
+        <input id="immersion" type="checkbox" name="myCheckBox" unchecked enabled onclick="changeChart()"><br>
+        <span class="checkmark"></span>
+      </label>
+    </span>
+
+  </div>
+
+  <div id="LineChart">
+
+    <!-- Checkbox-addSubject  -->
+    <span id="addSubject" style="display:none; " class="addSubject">
+      <label>ADD OTHERS SUBJECT:</label><br><br>
+      <label class="container">Subject001
+        <input id="Subject001" type="checkbox" name="myCheckBox" value="Subject001" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject002
+        <input id="Subject002" type="checkbox" name="myCheckBox" value="Subject002" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject003
+        <input id="Subject003" type="checkbox" name="myCheckBox" value="Subject003" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject004
+        <input id="Subject004" type="checkbox" name="myCheckBox" value="Subject004" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject005
+        <input id="Subject005" type="checkbox" name="myCheckBox" value="Subject005" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject006
+        <input id="Subject006" type="checkbox" name="myCheckBox" value="Subject006" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject007
+        <input id="Subject007" type="checkbox" name="myCheckBox" value="Subject007" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject008
+        <input id="Subject008" type="checkbox" name="myCheckBox" value="Subject008" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject009
+        <input id="Subject009" type="checkbox" name="myCheckBox" value="Subject009" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject010
+        <input id="Subject010" type="checkbox" name="myCheckBox" value="Subject010" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject011
+        <input id="Subject011" type="checkbox" name="myCheckBox" value="Subject011" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject012
+        <input id="Subject012" type="checkbox" name="myCheckBox" value="Subject012" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject013
+        <input id="Subject013" type="checkbox" name="myCheckBox" value="Subject013" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject014
+        <input id="Subject014" type="checkbox" name="myCheckBox" value="Subject014" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject015
+        <input id="Subject015" type="checkbox" name="myCheckBox" value="Subject015" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject016
+        <input id="Subject016" type="checkbox" name="myCheckBox" value="Subject016" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject017
+        <input id="Subject017" type="checkbox" name="myCheckBox" value="Subject017" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject018
+        <input id="Subject018" type="checkbox" name="myCheckBox" value="Subject018" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject019
+        <input id="Subject019" type="checkbox" name="myCheckBox" value="Subject019" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject020
+        <input id="Subject020" type="checkbox" name="myCheckBox" value="Subject020" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject021
+        <input id="Subject021" type="checkbox" name="myCheckBox" value="Subject021" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+      <label class="container">Subject022
+        <input id="Subject022" type="checkbox" name="myCheckBox" value="Subject022" unchecked enabled
+          onclick="addLine()"><br>
+        <span class="checkmark"></span>
+      </label>
+    </span>
+
+    <!-- Dropdown -->
+    <span id="typeSubject" style="display:none" class="typeSubject">
+      <label>SELECT SUBJECT:</label>
+      <select id="dataset" onchange="changeData()" class="dropdown">
+        <option selected value="Subject001">Subject 001</option>
+        <option value="Subject002">Subject 002</option>
+        <option value="Subject003">Subject 003</option>
+        <option value="Subject004">Subject 004</option>
+        <option value="Subject005">Subject 005</option>
+        <option value="Subject006">Subject 006</option>
+        <option value="Subject007">Subject 007</option>
+        <option value="Subject008">Subject 008</option>
+        <option value="Subject009">Subject 009</option>
+        <option value="Subject010">Subject 010</option>
+        <option value="Subject011">Subject 011</option>
+        <option value="Subject012">Subject 012</option>
+        <option value="Subject013">Subject 013</option>
+        <option value="Subject014">Subject 014</option>
+        <option value="Subject015">Subject 015</option>
+        <option value="Subject016">Subject 016</option>
+        <option value="Subject017">Subject 017</option>
+        <option value="Subject018">Subject 018</option>
+        <option value="Subject019">Subject 019</option>
+        <option value="Subject020">Subject 020</option>
+        <option value="Subject021">Subject 021</option>
+        <option value="Subject022">Subject 022</option>
+      </select>
+    </span>
+
+  </div>
+
+</body>
+
+</html>
